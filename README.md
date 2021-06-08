@@ -1,4 +1,4 @@
-# Trapped-Game-
+# Trapped-Game-Orient
 
 - Josh Alog
 - Benz Ocampo
