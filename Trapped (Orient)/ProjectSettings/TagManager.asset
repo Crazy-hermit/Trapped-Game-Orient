@@ -44,6 +44,9 @@ TagManager:
   - name: Tilemaps
     uniqueID: 12826705
     locked: 0
+  - name: JumpScare
+    uniqueID: 927697437
+    locked: 0
   - name: Player
     uniqueID: 4181530665
     locked: 0
