@@ -1,30 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    //speed
-    public float speed = 20.0f;
+    public float moveSpeed = 20.0f;
+    private Vector2 playerMoveInput;
 
-    Rigidbody2D rb;
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        move();
+        if (context.started)
+        {
+            Debug.Log("Movement triggered");
+        }
+
+        playerMoveInput = context.ReadValue<Vector2>();
     }
 
-    void move()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        if (context.started)
+        {
+            Debug.Log("Interact triggered");
+        }
+    }
 
-        rb.velocity = new Vector2(speed * x ,speed * y );
+    private void FixedUpdate()
+    {
+        //Debug.Log("Player movement: " + playerMoveInput);
+        rb.velocity = playerMoveInput * moveSpeed;
     }
 }
