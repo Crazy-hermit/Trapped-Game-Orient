@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Movement triggered");
+            //Debug.Log("Movement triggered");
         }
 
         playerMoveInput = context.ReadValue<Vector2>();
@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Interact triggered");
+            //Debug.Log("Interact triggered");
         }
     }
 
