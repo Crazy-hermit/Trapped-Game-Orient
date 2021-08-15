@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
         playerMoveInput = context.ReadValue<Vector2>();
     }
 
+    //Would be removed
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.started)

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ZoneAI : EnemyAI
 {
+    /*
+     * Script requirements:
+     *  -Must be attached to an object
+     *  -Object must have BoxCollider2D
+     */
+
     private BoxCollider2D area;
 
     private bool playerInArea;

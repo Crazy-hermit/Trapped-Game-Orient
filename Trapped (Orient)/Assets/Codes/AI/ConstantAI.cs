@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ConstantAI : EnemyAI
 {
+    /*
+     * Script requirements:
+     *  -Must be attached to an object
+     */
+
     public float moveSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         MoveToPlayer(moveSpeed);

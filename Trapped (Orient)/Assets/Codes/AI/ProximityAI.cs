@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ProximityAI : EnemyAI
 {
+    /*
+     * Script requirements:
+     *  -Must be attached to an object
+     *  -Object must have RigidBody2D
+     */
+
     public float moveSpeed;
     public float enemyRange;
     private float playerDistance;
@@ -20,7 +26,7 @@ public class ProximityAI : EnemyAI
     void Update()
     {
         //Check if player is within specified enemy range by using distance formula
-        if (Vector2.Distance(PlayerManager.instance.playerPosition, transform.position) <= enemyRange)
+        if (Vector2.Distance(Manager.instance.playerPosition, transform.position) <= enemyRange)
         {
             StopCoroutine(moveCor);
             MoveToPlayer(moveSpeed);
@@ -43,6 +49,7 @@ public class ProximityAI : EnemyAI
         Gizmos.DrawWireSphere(transform.position, enemyRange);
     }
 
+    //This needs work, not gonna lie. Theory is multiple coroutines are made, resulting in varying velocity assignments to the rigidbody.
     public IEnumerator move()
     {
         //Move left for 3 secs, move right for 3 secs, stowp
