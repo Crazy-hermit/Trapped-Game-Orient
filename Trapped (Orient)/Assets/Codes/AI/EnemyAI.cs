@@ -16,7 +16,7 @@ public abstract class EnemyAI : MonoBehaviour
     }
 
     //Removes itself for respawn, spawner creates another instance in a set random range of values
-    public void Respawn()
+    public void Despawn()
     {
         Destroy(gameObject);
     }

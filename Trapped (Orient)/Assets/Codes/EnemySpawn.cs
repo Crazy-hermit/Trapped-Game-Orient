@@ -15,12 +15,13 @@ public class EnemySpawn : MonoBehaviour
     private Vector2 spawnLoc;
     private float minWidth, maxWidth, minHeight, maxHeight;
 
+    //Disable initial respawn call in start method when enemy is not intended to spawn initially
     private void Start()
     {
-        Respawn();
+        //Spawn();
     }
 
-    public void Respawn()
+    public void Spawn()
     {
         //Spawn width calculations
         minWidth = transform.position.x - spawnWidth / 2;

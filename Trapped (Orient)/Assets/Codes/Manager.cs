@@ -18,6 +18,8 @@ public class Manager : MonoBehaviour
     public GameObject transitionCanvas;
     private Animator anim;
 
+    private GameObject cam;
+
     //Check if instance is the same instance throughout as soon as the scene is loaded (runs before Start())
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class Manager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = transitionCanvas.GetComponent<Animator>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update()
@@ -60,13 +63,7 @@ public class Manager : MonoBehaviour
         //Possible error source: Object with "Enemy" tag has no "EnemyAI" script or child classes of thereof
         foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            e.GetComponent<EnemyAI>().Respawn();
-        }
-
-        //Possible error source: Object with "Spawner" tag has no "EnemySpawn" script
-        foreach (GameObject s in GameObject.FindGameObjectsWithTag("Spawner"))
-        {
-            s.GetComponent<EnemySpawn>().Respawn();
+            e.GetComponent<EnemyAI>().Despawn();
         }
 
         //Arbitrary set time, to smooth out the transition
@@ -74,5 +71,22 @@ public class Manager : MonoBehaviour
 
         anim.Play("Fade out");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    //Camera must have an animator component with the "Shake" animation controller as the controller
+    public void SpawnProc()
+    {
+        cam.GetComponent<Animator>().Play("Shake");
+    }
+
+    public void DespawnProc()
+    {
+        cam.GetComponent<Animator>().Play("Shake");
+
+        //Possible error source: Object with "Enemy" tag has no "EnemyAI" script or child classes of thereof
+        foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            e.GetComponent<EnemyAI>().Despawn();
+        }
     }
 }

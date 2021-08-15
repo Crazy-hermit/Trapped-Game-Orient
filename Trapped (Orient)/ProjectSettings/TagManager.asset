@@ -7,6 +7,7 @@ TagManager:
   - Checkpoint
   - Enemy
   - Spawner
+  - Trigger
   layers:
   - Default
   - TransparentFX
