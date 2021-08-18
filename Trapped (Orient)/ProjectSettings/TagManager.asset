@@ -54,3 +54,6 @@ TagManager:
   - name: Player
     uniqueID: 4181530665
     locked: 0
+  - name: Overlap_Tilemap
+    uniqueID: 1465125671
+    locked: 0
