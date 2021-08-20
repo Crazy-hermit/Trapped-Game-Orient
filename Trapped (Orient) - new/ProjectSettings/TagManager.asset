@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Checkpoint
+  - Enemy
+  - Spawner
+  - Trigger
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Tilemaps
+    uniqueID: 12826705
+    locked: 0
+  - name: JumpScare
+    uniqueID: 927697437
+    locked: 0
+  - name: Player
+    uniqueID: 4181530665
+    locked: 0
+  - name: Overlap_Tilemap
+    uniqueID: 1465125671
+    locked: 0
+  - name: Word_Assets
+    uniqueID: 1262972325
+    locked: 0
