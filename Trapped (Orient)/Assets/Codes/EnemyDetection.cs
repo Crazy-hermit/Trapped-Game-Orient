@@ -8,7 +8,7 @@ public class EnemyDetection : MonoBehaviour
     private GameObject player;
     private Light light;
 
-    //float duration = 1.0f;
+    //float duration = 300.0f;
     Color color0 = Color.red;
     Color color1 = Color.black;
 
@@ -44,7 +44,7 @@ public class EnemyDetection : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             //float t = Mathf.PingPong(Time.time, duration) / duration;
-            light.color = Color.Lerp(color0, color1, 300);
+            light.color = Color.Lerp(color0, color1,300);
         }
 
         Debug.Log("Enemy Out Of Range");
