@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,14 +18,20 @@ public class DoorInteraction : MonoBehaviour
 
     private float delayinSeconds = 3;
 
-
     void Update()
     {
         if (DetectObject())
         {
             if (InteractInput())
             {
-                detectedObject.GetComponent<Door>().Interact();
+                try
+                {
+                    detectedObject.GetComponent<Door>().Interact();
+                }
+                catch (System.NullReferenceException)
+                {
+                    Debug.LogError("Exception Handled for Item Interaction", this);
+                }
             }
         }
 
@@ -57,7 +64,6 @@ public class DoorInteraction : MonoBehaviour
         Collider2D obj = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
         if (obj == null)
         {
-            //detectedObject = null;
             return false;
         }
         else
@@ -80,9 +86,5 @@ public class DoorInteraction : MonoBehaviour
         dialogueWindow.SetActive(true);
     }
 
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(2);
-    }
 
 }

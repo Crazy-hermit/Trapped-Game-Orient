@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,10 +40,18 @@ public class Interaction : MonoBehaviour
         if(DetectObject())
         {
             hint.SetActive(true);
-            if (InteractInput())
-            {
-                detectedObject.GetComponent<Item>().Interact();
-            }
+            
+                if (InteractInput())
+                {
+                    try
+                    {
+                        detectedObject.GetComponent<Item>().Interact();
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        Debug.LogError("Exception Handled for Door Interaction", this);
+                    }
+                }
         }
         else
             hint.SetActive(false);
@@ -127,9 +136,10 @@ public class Interaction : MonoBehaviour
         noteWindow.SetActive(true);
     }
 
+    /*
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(2);
     }
-
+    */
 }
